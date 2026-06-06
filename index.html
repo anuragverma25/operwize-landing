@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Operwize AI — Set up an AI operating system for your business</title>
+<meta name="description" content="Operwize AI helps UK small business owners set up their own AI Operating System in one focused 60-minute session. In person around Worcester / Birmingham or on Zoom across the UK." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* warm neutrals */
+    --paper: #FAF6F0;
+    --surface: #FFFFFF;
+    --sand: #F2EADE;
+    --sand-deep: #EBE0D1;
+    --ink: #241D17;
+    --muted: #6E6055;
+    --muted-2: #8A7B6D;
+    --line: #E7DCCD;
+    --ok: #3B6B53;
+
+    /* forest green accent */
+    --brand: #2f5743;
+    --brand-ink: #25463a;
+    --brand-deep: #1a3328;
+    --brand-soft: #d8e8e0;
+    --brand-tint: #e8f2ee;
+
+    --shadow-sm: 0 1px 2px rgba(36,29,23,.04), 0 2px 8px rgba(36,29,23,.05);
+    --shadow-md: 0 10px 30px rgba(36,29,23,.08);
+    --shadow-lg: 0 24px 60px rgba(36,29,23,.12);
+    --radius: 18px;
+    --maxw: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: "Hanken Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.6;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+  .serif { font-family: "Newsreader", Georgia, serif; }
+  a { color: inherit; }
+
+  /* ---------- Header ---------- */
+  header.top {
+    position: sticky; top: 0; z-index: 50;
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
+    backdrop-filter: saturate(140%) blur(12px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding-top: 16px; padding-bottom: 16px; }
+  .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; color: var(--ink); }
+  .brand .mark {
+    width: 30px; height: 30px; position: relative; flex: none;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  .brand .mark .ring { width: 30px; height: 30px; border-radius: 50%; border: 2.5px solid var(--brand); position: absolute; }
+  .brand .mark .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--brand); position: absolute; top: 2px; right: 2px; }
+  .brand .name { font-weight: 800; font-size: 19px; letter-spacing: -0.4px; }
+  .brand .ai {
+    font-size: 11px; font-weight: 800; letter-spacing: 0.6px;
+    color: var(--brand); background: var(--brand-tint);
+    padding: 2px 7px; border-radius: 6px; margin-left: 2px; transform: translateY(-1px);
+  }
+  nav.main { display: flex; align-items: center; gap: 4px; }
+  nav.main a { color: var(--muted); text-decoration: none; font-size: 15px; font-weight: 500; padding: 8px 12px; border-radius: 9px; transition: color .15s, background .15s; white-space: nowrap; }
+  nav.main a:hover { color: var(--ink); background: var(--sand); }
+  nav.main .nav-cta {
+    margin-left: 8px; background: var(--ink); color: var(--paper);
+    padding: 10px 16px; border-radius: 10px; font-weight: 600;
+  }
+  nav.main .nav-cta:hover { background: var(--brand); color: #fff; }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+    padding: 15px 24px; font-size: 16px; font-weight: 700; font-family: inherit;
+    text-decoration: none; border-radius: 12px; border: none; cursor: pointer;
+    transition: transform .08s ease, box-shadow .18s ease, background .18s ease;
+  }
+  .btn:hover { transform: translateY(-1.5px); }
+  .btn:active { transform: translateY(0); }
+  .btn-primary { background: var(--brand); color: #fff; box-shadow: 0 8px 22px color-mix(in srgb, var(--brand) 32%, transparent); }
+  .btn-primary:hover { background: var(--brand-ink); }
+  .btn-dark { background: var(--ink); color: var(--paper); }
+  .btn-dark:hover { background: #38291f; }
+  .btn-ghost { background: transparent; color: var(--ink); border: 1.5px solid var(--line); }
+  .btn-ghost:hover { background: var(--surface); border-color: var(--brand); color: var(--brand-ink); }
+  .btn .arrow { transition: transform .18s ease; }
+  .btn:hover .arrow { transform: translateX(3px); }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 13px; font-weight: 700; letter-spacing: 0.4px;
+    color: var(--brand-ink); background: var(--brand-tint);
+    padding: 7px 14px; border-radius: 999px; text-transform: uppercase;
+  }
+  .eyebrow::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--brand); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 70px 0 26px; }
+  .hero h1 { font-weight: 500; letter-spacing: -1px; color: var(--ink); margin: 20px 0 0; }
+  .hero h1 em { font-style: italic; color: var(--brand-ink); }
+  .lede { color: var(--muted); }
+  .cta-row { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+
+  /* image placeholder */
+  .ph {
+    position: relative; border-radius: 16px; overflow: hidden;
+    background-color: var(--sand);
+    background-image: repeating-linear-gradient(135deg, transparent 0 14px, color-mix(in srgb, var(--ink) 5%, transparent) 14px 15px);
+    border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .ph .ph-label {
+    font-family: "Hanken Grotesk", monospace; font-size: 12.5px; letter-spacing: 0.3px;
+    color: var(--muted); background: color-mix(in srgb, var(--paper) 78%, transparent);
+    padding: 6px 12px; border-radius: 8px; border: 1px solid var(--line);
+    text-align: center; max-width: 80%;
+  }
+
+  /* Hero C — statement + outcome list */
+  .hero-c-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; }
+  .hero-c-grid h1 { font-size: 62px; line-height: 1.02; }
+  .hero-c-grid .lede { font-size: 19px; margin: 22px 0 30px; max-width: 520px; }
+  .outcomes { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow-md); overflow: hidden; }
+  .outcomes .o {
+    display: flex; gap: 15px; padding: 20px 22px; border-bottom: 1px solid var(--line); align-items: flex-start;
+  }
+  .outcomes .o:last-of-type { border-bottom: none; }
+  .outcomes .o .n {
+    width: 30px; height: 30px; flex: none; border-radius: 9px; background: var(--brand-tint); color: var(--brand-ink);
+    display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 14px;
+  }
+  .outcomes .o b { font-size: 16px; display: block; margin-bottom: 2px; }
+  .outcomes .o span { color: var(--muted); font-size: 14.5px; line-height: 1.45; }
+  .outcomes .pricebar {
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    padding: 18px 22px; background: var(--brand-tint);
+  }
+  .outcomes .pricebar .p { font-family: "Newsreader", serif; font-size: 26px; color: var(--brand-ink); font-weight: 600; }
+  .outcomes .pricebar .p small { font-size: 14px; color: var(--muted); font-family: "Hanken Grotesk", sans-serif; }
+
+  /* ---------- Logo strip ---------- */
+  .logostrip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--surface); }
+  .logostrip .wrap { display: flex; align-items: center; gap: 30px; flex-wrap: wrap; justify-content: center; padding-top: 22px; padding-bottom: 22px; }
+  .logostrip .lbl { font-size: 13px; color: var(--muted-2); font-weight: 600; text-transform: uppercase; letter-spacing: 0.6px; }
+  .logostrip .item { font-weight: 700; color: var(--muted-2); font-size: 16px; opacity: .8; }
+
+  /* ---------- Sections ---------- */
+  section.block { padding: 84px 0; }
+  section.alt { background: var(--surface); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .sec-head { max-width: 720px; margin-bottom: 44px; }
+  .sec-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .kicker { font-size: 13.5px; font-weight: 700; color: var(--brand-ink); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  h2 { font-family: "Newsreader", serif; font-weight: 500; font-size: 42px; line-height: 1.08; letter-spacing: -0.6px; margin: 0 0 14px; }
+  .sub { color: var(--muted); margin: 0; font-size: 18px; }
+
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .card {
+    background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius);
+    padding: 28px; transition: transform .18s ease, box-shadow .18s ease, border-color .18s;
+  }
+  section.alt .card { background: var(--paper); }
+  .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); border-color: color-mix(in srgb, var(--brand) 40%, var(--line)); }
+  .card .icon {
+    width: 46px; height: 46px; border-radius: 12px; background: var(--brand-tint); color: var(--brand-ink);
+    display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 18px; margin-bottom: 18px;
+    font-family: "Newsreader", serif;
+  }
+  .card h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; }
+  .card p { margin: 0; color: var(--muted); font-size: 16px; }
+
+  /* session flow */
+  .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; position: relative; }
+  .flow .step { padding: 0 18px; position: relative; }
+  .flow .step .n {
+    width: 34px; height: 34px; border-radius: 50%; background: var(--brand); color: #fff;
+    display: inline-flex; align-items: center; justify-content: center; font-weight: 800; font-size: 15px; margin-bottom: 16px;
+    box-shadow: 0 0 0 6px var(--brand-tint);
+  }
+  .flow .step .mins { font-family: "Newsreader", serif; font-size: 19px; font-weight: 600; color: var(--ink); display: block; margin-bottom: 4px; }
+  .flow .step p { color: var(--muted); font-size: 15px; margin: 0; }
+  .flow-line { height: 2px; background: var(--line); margin: 17px 16px 28px; position: relative; }
+
+  /* who it's for */
+  .who { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .who .col { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 30px; }
+  section.alt .who .col { background: var(--paper); }
+  .who .col.fit { border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); background: color-mix(in srgb, var(--ok) 5%, var(--paper)); }
+  .who .col h3 { margin: 0 0 6px; font-size: 19px; display: flex; align-items: center; gap: 10px; }
+  .who .col .tag { font-size: 12px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: .5px; }
+  .who .fit .tag { background: color-mix(in srgb, var(--ok) 16%, transparent); color: var(--ok); }
+  .who .notfit .tag { background: var(--sand-deep); color: var(--muted); }
+  .who ul { list-style: none; margin: 18px 0 0; padding: 0; }
+  .who li { padding: 11px 0 11px 32px; position: relative; font-size: 16px; border-top: 1px solid var(--line); }
+  .who li:first-child { border-top: none; }
+  .who .fit li::before { content: "✓"; position: absolute; left: 0; top: 11px; color: var(--ok); font-weight: 800; }
+  .who .notfit li::before { content: "–"; position: absolute; left: 4px; top: 11px; color: var(--muted-2); font-weight: 800; }
+  .who .notfit li { color: var(--muted); }
+
+  /* pricing */
+  .pricegrid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+  .price-card { background: var(--surface); border: 1.5px solid var(--brand); border-radius: 22px; padding: 38px; box-shadow: var(--shadow-lg); position: relative; }
+  section.alt .price-card { background: var(--paper); }
+  .price-card .tag { display: inline-block; background: var(--brand); color: #fff; font-size: 11.5px; font-weight: 800; padding: 5px 12px; border-radius: 999px; letter-spacing: 0.8px; text-transform: uppercase; }
+  .price-card .amount { font-family: "Newsreader", serif; font-size: 64px; font-weight: 600; color: var(--brand-ink); line-height: 1; margin: 18px 0 6px; }
+  .price-card .amount small { font-size: 18px; color: var(--muted); font-weight: 500; font-family: "Hanken Grotesk", sans-serif; }
+  .price-card .where { color: var(--muted); font-size: 14.5px; margin-bottom: 4px; }
+  .price-card ul { margin: 22px 0 26px; padding: 0; list-style: none; }
+  .price-card li { padding: 9px 0 9px 30px; position: relative; font-size: 16px; }
+  .price-card li::before { content: "✓"; color: var(--ok); position: absolute; left: 0; font-weight: 800; }
+
+  /* about */
+  .about { display: grid; grid-template-columns: 0.62fr 1.38fr; gap: 48px; align-items: start; }
+  .about .portrait { position: relative; max-width: 300px; }
+  .about .ph { aspect-ratio: 4/5; }
+  .about .namecard { position: absolute; left: 18px; bottom: 18px; right: 18px; background: color-mix(in srgb, var(--paper) 92%, transparent); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; backdrop-filter: blur(4px); }
+  .about .namecard b { display: block; font-size: 16px; }
+  .about .namecard span { color: var(--muted); font-size: 13.5px; }
+  .about h2 { margin-bottom: 18px; }
+  .about p { color: var(--muted); font-size: 17px; margin: 0 0 16px; }
+  .about p strong { color: var(--ink); }
+  .about .quote { font-family: "Newsreader", serif; font-style: italic; font-size: 22px; line-height: 1.4; color: var(--ink); border-left: 3px solid var(--brand); padding-left: 20px; margin: 24px 0 0; }
+
+  /* faq */
+  .faq { max-width: 800px; margin: 0 auto; }
+  .faq details { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 4px 22px; margin-bottom: 12px; transition: border-color .15s, box-shadow .15s; }
+  section.alt .faq details { background: var(--paper); }
+  .faq details[open] { border-color: color-mix(in srgb, var(--brand) 40%, var(--line)); box-shadow: var(--shadow-sm); }
+  .faq summary { font-weight: 700; cursor: pointer; font-size: 17px; list-style: none; padding: 18px 0; display: flex; justify-content: space-between; align-items: center; gap: 18px; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary .pm { flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--brand-tint); color: var(--brand-ink); display: inline-flex; align-items: center; justify-content: center; font-size: 20px; line-height: 1; transition: transform .2s; }
+  .faq details[open] summary .pm { transform: rotate(45deg); }
+  .faq p { margin: 0 0 18px; color: var(--muted); font-size: 16px; }
+
+  /* ---------- Lead form ---------- */
+  #book { background: var(--ink); color: var(--paper); }
+  #book .wrap { padding-top: 86px; padding-bottom: 86px; }
+  .book-grid { display: grid; grid-template-columns: 0.92fr 1.08fr; gap: 56px; align-items: start; }
+  #book .kicker { color: color-mix(in srgb, var(--brand) 65%, #fff); }
+  #book h2 { color: var(--paper); }
+  #book .book-intro p { color: color-mix(in srgb, var(--paper) 72%, transparent); font-size: 17.5px; }
+  #book .reassure { list-style: none; padding: 0; margin: 30px 0 0; }
+  #book .reassure li { padding: 13px 0; border-top: 1px solid rgba(250,246,240,.14); display: flex; gap: 13px; align-items: flex-start; font-size: 15.5px; color: color-mix(in srgb, var(--paper) 86%, transparent); }
+  #book .reassure li .ic { flex: none; width: 26px; height: 26px; border-radius: 8px; background: rgba(250,246,240,.12); display: inline-flex; align-items: center; justify-content: center; color: #74e0a5; font-weight: 800; }
+
+  .form-card { background: var(--paper); color: var(--ink); border-radius: 22px; padding: 34px; box-shadow: var(--shadow-lg); }
+  .form-steps { display: flex; align-items: center; gap: 10px; margin-bottom: 26px; }
+  .form-steps .s { display: flex; align-items: center; gap: 10px; }
+  .form-steps .bub { width: 28px; height: 28px; border-radius: 50%; border: 2px solid var(--line); display: inline-flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 800; color: var(--muted-2); background: var(--surface); transition: all .2s; }
+  .form-steps .s.active .bub { background: var(--brand); border-color: var(--brand); color: #fff; }
+  .form-steps .s.done .bub { background: var(--ok); border-color: var(--ok); color: #fff; }
+  .form-steps .s .lbl { font-size: 14px; font-weight: 600; color: var(--muted); }
+  .form-steps .s.active .lbl { color: var(--ink); }
+  .form-steps .bar { flex: 1; height: 2px; background: var(--line); border-radius: 2px; }
+
+  .fstep { display: none; }
+  .fstep.show { display: block; }
+  .fstep.show.anim { animation: fade .35s ease; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .field { margin-bottom: 18px; }
+  .field.row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+  .field.row2 > .field { margin-bottom: 0; }
+  label.flbl { display: block; font-size: 14px; font-weight: 700; margin-bottom: 7px; }
+  label.flbl .opt { font-weight: 500; color: var(--muted-2); font-size: 12.5px; }
+  .req { color: var(--brand); }
+  input.fin, select.fin, textarea.fin {
+    width: 100%; font-family: inherit; font-size: 16px; color: var(--ink);
+    background: var(--surface); border: 1.5px solid var(--line); border-radius: 11px;
+    padding: 13px 15px; transition: border-color .15s, box-shadow .15s; outline: none;
+    -webkit-appearance: none; appearance: none; accent-color: var(--brand);
+  }
+  select.fin {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238A7B6D' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 38px;
+  }
+  textarea.fin { resize: vertical; min-height: 96px; line-height: 1.5; }
+  input.fin:focus, select.fin:focus, textarea.fin:focus { border-color: var(--brand); box-shadow: 0 0 0 4px var(--brand-tint); }
+  input.fin::placeholder, textarea.fin::placeholder { color: var(--muted-2); }
+  .fin.bad { border-color: #c0392b; box-shadow: 0 0 0 4px rgba(192,57,43,.1); }
+  .errmsg { color: #c0392b; font-size: 13px; margin-top: 6px; display: none; }
+  .errmsg.show { display: block; }
+
+  .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .seg label { cursor: pointer; }
+  .seg input { position: absolute; opacity: 0; pointer-events: none; }
+  .seg .opt {
+    display: flex; flex-direction: column; gap: 2px; border: 1.5px solid var(--line); border-radius: 12px;
+    padding: 14px 16px; transition: all .15s; background: var(--surface);
+  }
+  .seg .opt b { font-size: 15px; }
+  .seg .opt small { color: var(--muted); font-size: 13px; }
+  .seg input:checked + .opt { border-color: var(--brand); background: var(--brand-tint); box-shadow: 0 0 0 3px var(--brand-tint); }
+  .seg input:focus-visible + .opt { border-color: var(--brand); }
+
+  .form-actions { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 26px; }
+  .form-actions .left { color: var(--muted-2); font-size: 13.5px; }
+  .linkback { background: none; border: none; color: var(--muted); font-family: inherit; font-size: 15px; font-weight: 600; cursor: pointer; padding: 8px 4px; display: inline-flex; align-items: center; gap: 6px; }
+  .linkback:hover { color: var(--ink); }
+
+  /* success */
+  .success { display: none; text-align: center; padding: 14px 4px 6px; animation: fade .4s ease; }
+  .success.show { display: block; }
+  .success .check { width: 68px; height: 68px; border-radius: 50%; background: color-mix(in srgb, var(--ok) 14%, transparent); color: var(--ok); display: inline-flex; align-items: center; justify-content: center; font-size: 34px; margin-bottom: 18px; }
+  .success h3 { font-family: "Newsreader", serif; font-size: 30px; font-weight: 600; margin: 0 0 10px; }
+  .success p { color: var(--muted); margin: 0 auto 18px; max-width: 380px; font-size: 16px; }
+  .success .summary { text-align: left; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 18px 20px; margin: 4px auto 22px; max-width: 420px; }
+  .success .summary .r { display: flex; justify-content: space-between; align-items: baseline; gap: 18px; padding: 8px 0; border-top: 1px dashed var(--line); font-size: 14.5px; }
+  .success .summary .r:first-child { border-top: none; }
+  .success .summary .r b { color: var(--muted); font-weight: 600; flex: 0 0 auto; white-space: nowrap; }
+  .success .summary .r span { font-weight: 600; text-align: right; flex: 1 1 auto; min-width: 0; overflow-wrap: anywhere; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--paper); padding: 54px 0 40px; border-top: 1px solid var(--line); }
+  footer .top { display: flex; justify-content: space-between; gap: 28px; flex-wrap: wrap; padding-bottom: 32px; border-bottom: 1px solid var(--line); }
+  footer .fcol h4 { font-size: 13px; text-transform: uppercase; letter-spacing: .8px; color: var(--muted-2); margin: 0 0 14px; font-weight: 700; }
+  footer .fcol a { display: block; color: var(--muted); text-decoration: none; font-size: 15px; margin-bottom: 9px; }
+  footer .fcol a:hover { color: var(--brand-ink); }
+  footer .fcol .floc { color: var(--muted-2); font-size: 14px; line-height: 1.45; display: block; }
+  footer .blurb { max-width: 300px; }
+  footer .blurb p { color: var(--muted); font-size: 14.5px; margin: 12px 0 0; }
+  footer .bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 24px; color: var(--muted-2); font-size: 13.5px; }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 940px) {
+    .hero-c-grid, .pricegrid, .about, .book-grid, .who { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: repeat(2, 1fr); gap: 28px 12px; }
+    .flow-line { display: none; }
+    h2 { font-size: 34px; }
+    nav.main a:not(.nav-cta) { display: none; }
+    .hero-c-grid h1 { font-size: 44px; }
+    .outcomes { max-width: 520px; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+    .hero { padding: 44px 0 18px; }
+    .hero-c-grid h1 { font-size: 38px; }
+    section.block { padding: 60px 0; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .field.row2 { grid-template-columns: 1fr; }
+    .form-card { padding: 24px; }
+    .form-steps .s .lbl { display: none; }
+    h2 { font-size: 30px; }
+    #book .wrap { padding-top: 56px; padding-bottom: 56px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Operwize AI home">
+      <span class="mark"><span class="ring"></span><span class="dot"></span></span>
+      <span class="name">Operwize<span class="ai">AI</span></span>
+    </a>
+    <nav class="main">
+      <a href="#what">What you get</a>
+      <a href="#how">How it works</a>
+      <a href="#who">Who it's for</a>
+      <a href="#price">Pricing</a>
+      <a href="#book" class="nav-cta">Book a session</a>
+    </nav>
+  </div>
+</header>
+
+<span id="top"></span>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-c-grid">
+      <div class="copy">
+        <span class="eyebrow">For UK small business owners</span>
+        <h1 class="serif">Stop reading about AI. <em>Build yours.</em></h1>
+        <p class="lede">Operwize AI runs one focused, sixty-minute session with you and your business — and you walk away with a working setup inside the tools you already pay for. No course, no strategy deck, no homework.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#book">Book your session <span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="#how">How the hour runs</a>
+        </div>
+      </div>
+      <div class="outcomes">
+        <div class="o"><span class="n">1</span><div><b>Your data, in one place</b><span>The files, emails and sheets your business already runs on — connected so AI can do your work.</span></div></div>
+        <div class="o"><span class="n">2</span><div><b>One automation, live</b><span>Pick a real task and we set it up together during the session.</span></div></div>
+        <div class="o"><span class="n">3</span><div><b>A clear next step</b><span>A one-page recap and two things to try this week. No upsell.</span></div></div>
+        <div class="pricebar"><span class="p">£75 <small>/ session</small></span><a class="btn btn-primary" href="#book" style="padding:11px 18px;">Book now</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOGO / CONTEXT STRIP ============ -->
+<div class="logostrip">
+  <div class="wrap">
+    <span class="lbl">Built inside tools you already pay for</span>
+    <span class="item">Microsoft 365</span>
+    <span class="item">Google Workspace</span>
+    <span class="item">ChatGPT</span>
+    <span class="item">Claude</span>
+    <span class="item">Copilot</span>
+    <span class="item">Notion</span>
+  </div>
+</div>
+
+<!-- ============ WHAT YOU GET ============ -->
+<section class="block" id="what">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">What you walk away with</div>
+      <h2 class="serif">A working setup, not a slide deck.</h2>
+      <p class="sub">Every session ends with something real running in your business. No homework, no long report, no twelve-week transformation plan.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon">1</div>
+        <h3>Your data, in one place</h3>
+        <p>We connect the files, emails and spreadsheets your business already runs on — so the AI does your actual work, not generic chatbot answers.</p>
+      </div>
+      <div class="card">
+        <div class="icon">2</div>
+        <h3>One useful automation</h3>
+        <p>Pick a real task — weekly client digest, quote drafter, inbox triage, monthly close pack — and we set it up live in the session.</p>
+      </div>
+      <div class="card">
+        <div class="icon">3</div>
+        <h3>A clear next step</h3>
+        <p>You leave with a one-page summary, two things to try this week, and an honest view of where AI helps you most. No upsell pressure.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="block alt" id="how">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">How the hour runs</div>
+      <h2 class="serif">Plain English. Your pace.</h2>
+      <p class="sub">No jargon, no terminal screens. If you can use email and a web browser, you can do this with us.</p>
+    </div>
+    <div class="flow">
+      <div class="step"><span class="n">1</span><span class="mins">10 min</span><p>Tell us how your business actually runs. We listen.</p></div>
+      <div class="step"><span class="n">2</span><span class="mins">10 min</span><p>Together we pick one workflow worth automating first.</p></div>
+      <div class="step"><span class="n">3</span><span class="mins">25 min</span><p>We build it live, in the tools you already pay for.</p></div>
+      <div class="step"><span class="n">4</span><span class="mins">10 min</span><p>You drive it. We refine until you understand how it works.</p></div>
+      <div class="step"><span class="n">5</span><span class="mins">5 min</span><p>We send a one-page recap and two things to try this week.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHO IT'S FOR ============ -->
+<section class="block" id="who">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Honest fit</div>
+      <h2 class="serif">Read both columns before you book.</h2>
+      <p class="sub">We would rather turn down a session than sell you an hour that won't land. Here's who gets the most from Operwize AI — and who doesn't.</p>
+    </div>
+    <div class="who">
+      <div class="col fit">
+        <h3>This is for you if… <span class="tag">Good fit</span></h3>
+        <ul>
+          <li><strong>Owner-led UK businesses</strong> with 2–30 staff.</li>
+          <li>AI feels like it's moving fast and you're behind.</li>
+          <li>You already use email, spreadsheets and at least one cloud tool.</li>
+          <li>You can spare one focused hour without the phone going off.</li>
+          <li>You want a real setup, not a course or a strategy deck.</li>
+        </ul>
+      </div>
+      <div class="col notfit">
+        <h3>Probably not yet if… <span class="tag">Not a fit</span></h3>
+        <ul>
+          <li>You want a global, enterprise-wide AI transformation programme.</li>
+          <li>You're hoping AI will replace your team or guarantee revenue.</li>
+          <li>Your business data lives only in someone's head, with no documents at all.</li>
+          <li>You're pre-revenue and looking for free strategy time.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="block alt" id="price">
+  <div class="wrap">
+    <div class="pricegrid">
+      <div>
+        <div class="kicker">Pricing</div>
+        <h2 class="serif">One simple price. No retainers.</h2>
+        <p class="sub" style="margin-bottom:18px;">Pay per session, see what value lands, then decide what's next together. Most clients book two to four sessions over a few weeks.</p>
+        <p style="color:var(--muted); font-size:16px; margin:0;">If at the end of the first hour you genuinely feel it wasn't worth £75, we'll refund it — no quibble. We haven't had to yet.</p>
+      </div>
+      <div class="price-card">
+        <span class="tag">Launch price</span>
+        <div class="amount">£75<small> / session</small></div>
+        <div class="where">60-minute working session · in person around Worcester / Birmingham, or on Zoom anywhere in the UK.</div>
+        <ul>
+          <li>Live setup in your own tools</li>
+          <li>One real workflow running by the end</li>
+          <li>Written one-page recap by email</li>
+          <li>Two things to try that week</li>
+          <li>No-quibble refund if it lands flat</li>
+        </ul>
+        <a class="btn btn-primary" href="#book" style="width:100%;">Book your hour <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="block" id="about">
+  <div class="wrap">
+    <div class="about">
+      <img src="anurag.png" alt="Anurag Verma" style="width:100%;border-radius:16px;display:block;object-fit:cover;aspect-ratio:4/5;" />
+      <div>
+        <div class="kicker">The person behind it</div>
+        <h2 class="serif">Who you'll be working with.</h2>
+        <p><strong>Anurag Verma</strong> — a business analyst by trade and an AI builder by evening. A decade inside real companies doing process and stakeholder work; out of hours, a home lab building AI systems and helping UK small business owners get unstuck with the very same tools.</p>
+        <p>No Silicon Valley futurism here — just someone who has spent years figuring out where the work actually slows down. That's the lens behind every Operwize AI session: less hype, more help.</p>
+        <p>Based in Worcester, with reach into Birmingham, Coventry and the wider Midlands. Happy to travel within an hour for in-person sessions; otherwise we work on Zoom.</p>
+        <p class="quote">"Less hype, more help. You bring the business; we bring the tools."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="block alt" id="faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <div class="kicker">Common questions</div>
+      <h2 class="serif">Read before you book.</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>I already use ChatGPT. Is this different?<span class="pm">+</span></summary>
+        <p>Yes — and that's exactly why we'll get value quickly. ChatGPT and Copilot are useful but generic; they don't know your business. What we build sits one layer below: a place where your data and processes live, so the AI does your actual work, not just text that sounds like it.</p>
+      </details>
+      <details>
+        <summary>Is my data safe?<span class="pm">+</span></summary>
+        <p>That's the right thing to worry about. We use UK / EU regions only, your existing tools wherever possible, and you control every connection. Happy to sign a one-page NDA before the first session.</p>
+      </details>
+      <details>
+        <summary>I'm not technical. Will I follow along?<span class="pm">+</span></summary>
+        <p>Most of our clients aren't technical — translating is the job. You bring the knowledge of your business; we bring the tools. If you lose the thread at any point, we slow down. There's no exam at the end.</p>
+      </details>
+      <details>
+        <summary>What if I want to build something bigger?<span class="pm">+</span></summary>
+        <p>After two or three sessions, most clients want to extend a workflow into something more substantial. At that point we scope a fixed-price project, so you know exactly what you're paying for. No surprise bills, no retainers unless you ask for one.</p>
+      </details>
+      <details>
+        <summary>Do you have references?<span class="pm">+</span></summary>
+        <p>We're building the first round of testimonials now and will share case studies as they land. In the meantime, the £75 price and refund offer are designed to keep your risk close to zero.</p>
+      </details>
+      <details>
+        <summary>Where will the session happen?<span class="pm">+</span></summary>
+        <p>In person around Worcester, Birmingham or Coventry — at your office or a quiet coffee shop. Anywhere else in the UK, we run it on Zoom. Sessions outside that radius pick up a £25 travel adder.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEAD FORM ============ -->
+<section id="book">
+  <div class="wrap">
+    <div class="book-grid">
+      <div class="book-intro">
+        <div class="kicker">Book your session</div>
+        <h2 class="serif">Tell us a little, and we'll be in touch.</h2>
+        <p>Share a few details about your business and what's slowing you down. We'll reply within one working day with a couple of times that fit — and a short note on what we'd likely build first.</p>
+        <ul class="reassure">
+          <li><span class="ic">✓</span><div>No payment now — you only pay once a session is booked and confirmed.</div></li>
+          <li><span class="ic">✓</span><div>We run a maximum of three sessions a week, so every one gets full attention.</div></li>
+          <li><span class="ic">✓</span><div>Your details stay with Operwize AI. No lists, no spam, no sharing.</div></li>
+        </ul>
+      </div>
+
+      <div class="form-card">
+        <form id="leadform" novalidate>
+          <div class="form-steps" id="stepbar">
+            <div class="s active" data-step="1"><span class="bub">1</span><span class="lbl">Your business</span></div>
+            <div class="bar"></div>
+            <div class="s" data-step="2"><span class="bub">2</span><span class="lbl">The session</span></div>
+          </div>
+
+          <!-- STEP 1 -->
+          <div class="fstep show" id="fstep-1">
+            <div class="field">
+              <label class="flbl" for="f_business">Business name <span class="req">*</span></label>
+              <input class="fin" id="f_business" name="business" type="text" placeholder="e.g. Bramwell Joinery Ltd" autocomplete="organization" />
+              <div class="errmsg" id="e_business">Please tell us your business name.</div>
+            </div>
+            <div class="field row2">
+              <div class="field">
+                <label class="flbl" for="f_email">Email <span class="req">*</span></label>
+                <input class="fin" id="f_email" name="email" type="email" placeholder="you@business.co.uk" autocomplete="email" />
+                <div class="errmsg" id="e_email">Please enter a valid email.</div>
+              </div>
+              <div class="field">
+                <label class="flbl" for="f_phone">Phone <span class="opt">(optional)</span></label>
+                <input class="fin" id="f_phone" name="phone" type="tel" placeholder="07…" autocomplete="tel" />
+              </div>
+            </div>
+            <div class="field row2">
+              <div class="field">
+                <label class="flbl" for="f_town">Town / location <span class="req">*</span></label>
+                <input class="fin" id="f_town" name="town" type="text" placeholder="e.g. Worcester" autocomplete="address-level2" />
+                <div class="errmsg" id="e_town">Where are you based?</div>
+              </div>
+              <div class="field">
+                <label class="flbl" for="f_size">Business size <span class="req">*</span></label>
+                <select class="fin" id="f_size" name="size">
+                  <option value="" disabled selected>Number of staff…</option>
+                  <option>Just me</option>
+                  <option>2–10</option>
+                  <option>11–30</option>
+                  <option>30+</option>
+                </select>
+                <div class="errmsg" id="e_size">Pick the closest range.</div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <span class="left">Step 1 of 2 · takes about a minute</span>
+              <button type="button" class="btn btn-dark" id="toStep2">Continue <span class="arrow">→</span></button>
+            </div>
+          </div>
+
+          <!-- STEP 2 -->
+          <div class="fstep" id="fstep-2">
+            <div class="field">
+              <label class="flbl">How would you like to meet? <span class="req">*</span></label>
+              <div class="seg">
+                <label><input type="radio" name="mode" value="In person" /><span class="opt"><b>In person</b><small>Worcester · Birmingham area</small></span></label>
+                <label><input type="radio" name="mode" value="On Zoom" /><span class="opt"><b>On Zoom</b><small>Anywhere in the UK</small></span></label>
+              </div>
+              <div class="errmsg" id="e_mode">Pick one so we know how to set up.</div>
+            </div>
+            <div class="field">
+              <label class="flbl" for="f_oneThing">What's the one thing slowing you down right now? <span class="req">*</span></label>
+              <input class="fin" id="f_oneThing" name="oneThing" type="text" placeholder="e.g. quoting takes all evening / inbox is chaos" />
+              <div class="errmsg" id="e_oneThing">A sentence is plenty — it helps us prepare.</div>
+            </div>
+            <div class="field">
+              <label class="flbl" for="f_help">What would you like help with? <span class="opt">(optional)</span></label>
+              <textarea class="fin" id="f_help" name="help" placeholder="A few lines on the task or workflow you'd love to automate first."></textarea>
+            </div>
+            <div class="field">
+              <label class="flbl" for="f_when">Preferred date / time <span class="opt">(optional)</span></label>
+              <input class="fin" id="f_when" name="when" type="text" placeholder="e.g. Weekday mornings, or Tue 16th afternoon" />
+            </div>
+            <div class="form-actions">
+              <button type="button" class="linkback" id="backTo1">← Back</button>
+              <button type="submit" class="btn btn-primary" id="submitLead">Request my session <span class="arrow">→</span></button>
+            </div>
+          </div>
+        </form>
+
+        <!-- SUCCESS -->
+        <div class="success" id="success">
+          <div class="check">✓</div>
+          <h3>Thanks — we've got it.</h3>
+          <p>We'll reply within one working day with a couple of times that fit and a short note on what we'd build first.</p>
+          <div class="summary" id="successSummary"></div>
+          <a class="btn btn-dark" id="mailFallback" href="#" style="width:100%;">Prefer email? Send these details directly</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div class="blurb">
+        <a class="brand" href="#top" aria-label="Operwize AI home">
+          <span class="mark"><span class="ring"></span><span class="dot"></span></span>
+          <span class="name">Operwize<span class="ai">AI</span></span>
+        </a>
+        <p>Helping UK small business owners set up their own AI Operating System — one focused hour at a time.</p>
+      </div>
+      <div class="fcol">
+        <h4>The session</h4>
+        <a href="#what">What you get</a>
+        <a href="#how">How it works</a>
+        <a href="#who">Who it's for</a>
+        <a href="#price">Pricing</a>
+      </div>
+      <div class="fcol">
+        <h4>Company</h4>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#book">Book a session</a>
+      </div>
+      <div class="fcol">
+        <h4>Get in touch</h4>
+        <a href="#book">Request a session →</a>
+        <a href="mailto:anurag@operwize.co.uk">anurag@operwize.co.uk</a>
+        <span class="floc">In person around Worcester &amp; Birmingham · Zoom UK-wide</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <div>© 2026 Operwize AI. Independent practice based in the UK.</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var form = document.getElementById('leadform');
+  if (!form) return;
+  var step1 = document.getElementById('fstep-1');
+  var step2 = document.getElementById('fstep-2');
+  var bar = document.getElementById('stepbar');
+  var success = document.getElementById('success');
+
+  function setStep(n) {
+    step1.classList.toggle('show', n === 1);
+    step2.classList.toggle('show', n === 2);
+    step1.classList.add('anim');
+    step2.classList.add('anim');
+    var items = bar.querySelectorAll('.s');
+    items.forEach(function (el) {
+      var s = +el.getAttribute('data-step');
+      el.classList.toggle('active', s === n);
+      el.classList.toggle('done', s < n);
+    });
+    bar.style.display = '';
+  }
+
+  function setErr(id, on) {
+    var inp = document.getElementById('f_' + id) || document.querySelector('[name="' + id + '"]');
+    var msg = document.getElementById('e_' + id);
+    if (msg) msg.classList.toggle('show', on);
+    if (inp && inp.classList) inp.classList.toggle('bad', on);
+  }
+
+  function validEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+
+  function validateStep1() {
+    var ok = true;
+    var b = document.getElementById('f_business').value.trim();
+    var e = document.getElementById('f_email').value.trim();
+    var t = document.getElementById('f_town').value.trim();
+    var s = document.getElementById('f_size').value;
+    setErr('business', !b); if (!b) ok = false;
+    var eBad = !validEmail(e); setErr('email', eBad); if (eBad) ok = false;
+    setErr('town', !t); if (!t) ok = false;
+    setErr('size', !s); if (!s) ok = false;
+    return ok;
+  }
+  function validateStep2() {
+    var ok = true;
+    var mode = form.querySelector('[name="mode"]:checked');
+    setErr('mode', !mode); if (!mode) ok = false;
+    var one = document.getElementById('f_oneThing').value.trim();
+    setErr('oneThing', !one); if (!one) ok = false;
+    return ok;
+  }
+
+  document.getElementById('toStep2').addEventListener('click', function () {
+    if (validateStep1()) setStep(2);
+  });
+  document.getElementById('backTo1').addEventListener('click', function () { setStep(1); });
+
+  form.addEventListener('input', function (ev) {
+    var t = ev.target;
+    if (t.classList && t.classList.contains('bad')) t.classList.remove('bad');
+    var id = t.id ? t.id.replace('f_', '') : (t.name || '');
+    var msg = document.getElementById('e_' + id);
+    if (msg) msg.classList.remove('show');
+  });
+
+  function gather() {
+    var modeEl = form.querySelector('[name="mode"]:checked');
+    return {
+      business: document.getElementById('f_business').value.trim(),
+      email: document.getElementById('f_email').value.trim(),
+      phone: document.getElementById('f_phone').value.trim(),
+      town: document.getElementById('f_town').value.trim(),
+      size: document.getElementById('f_size').value,
+      mode: modeEl ? modeEl.value : '',
+      oneThing: document.getElementById('f_oneThing').value.trim(),
+      help: document.getElementById('f_help').value.trim(),
+      when: document.getElementById('f_when').value.trim()
+    };
+  }
+
+  function buildMailto(d) {
+    var subj = 'Operwize AI session — ' + (d.business || 'enquiry');
+    var lines = [
+      'Hi Operwize AI,', '',
+      'I\'d like to book a session. Here are my details:', '',
+      'Business: ' + d.business,
+      'Email: ' + d.email,
+      'Phone: ' + (d.phone || '—'),
+      'Town / location: ' + d.town,
+      'Business size: ' + d.size,
+      'Meet: ' + d.mode,
+      'The one thing slowing me down: ' + d.oneThing,
+      'Help wanted: ' + (d.help || '—'),
+      'Preferred date / time: ' + (d.when || '—'),
+      '', 'Thanks!'
+    ];
+    return 'mailto:anurag@operwize.co.uk?subject=' + encodeURIComponent(subj) +
+           '&body=' + encodeURIComponent(lines.join('\n'));
+  }
+
+  function renderSummary(d) {
+    var rows = [
+      ['Business', d.business],
+      ['Email', d.email],
+      ['Location', d.town],
+      ['Size', d.size],
+      ['Meet', d.mode],
+      ['Slowing you down', d.oneThing]
+    ];
+    if (d.when) rows.push(['Preferred', d.when]);
+    var html = rows.map(function (r) {
+      return '<div class="r"><b>' + r[0] + '</b><span>' + (r[1] || '—').replace(/</g, '&lt;') + '</span></div>';
+    }).join('');
+    document.getElementById('successSummary').innerHTML = html;
+  }
+
+  form.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!validateStep2()) return;
+    var d = gather();
+    try { localStorage.setItem('operwize_lead', JSON.stringify({ data: d, at: new Date().toISOString() })); } catch (e) {}
+    renderSummary(d);
+    document.getElementById('mailFallback').setAttribute('href', buildMailto(d));
+
+    var submitBtn = document.getElementById('submitLead');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    fetch('https://formspree.io/f/mnjypnpg', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify(d)
+    })
+    .then(function (res) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Request my session <span class="arrow">→</span>';
+      form.style.display = 'none';
+      success.classList.add('show');
+    })
+    .catch(function () {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = 'Request my session <span class="arrow">→</span>';
+      // still show success — lead is saved to localStorage and mailto fallback is ready
+      form.style.display = 'none';
+      success.classList.add('show');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
